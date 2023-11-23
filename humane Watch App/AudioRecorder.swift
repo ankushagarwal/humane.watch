@@ -40,14 +40,14 @@ class AudioRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate {
     }
 
     func startRecording() {
+        isRecording = true
         setupAudioRecorder()
         audioRecorder?.record()
-        isRecording = true
     }
 
     func stopRecording() {
-        audioRecorder?.stop()
         isRecording = false
+        audioRecorder?.stop()
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
